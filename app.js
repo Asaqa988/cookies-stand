@@ -481,7 +481,7 @@ function submitter(event) {
 
     let addedShops = new Shops(name, minCustomer, maxCustomer, avgCookies)
     addedShops.randomCustomer()
-    addedShops.Numberofcookies()
+    // addedShops.Numberofcookies
 
     console.log(addedShops)
 }
