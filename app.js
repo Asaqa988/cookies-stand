@@ -439,21 +439,49 @@ let footer = function () {
 
 
             console.log(shopname[b].Numberofcookies[i])
-                
+
         }
-        
+
         let footerdatatotal = document.createElement('td')
         footerrow.appendChild(footerdatatotal)
-        footerdatatotal.textContent = `${ total } `
+        footerdatatotal.textContent = `${total} `
 
-        
-        console.log(totalfooter,"hi")
-        console.log(total,"hello")
+
+        console.log(totalfooter, "hi")
+        console.log(total, "hello")
     }
 
     let totalrender = document.createElement('td')
     footerrow.appendChild(totalrender)
-    totalrender.textContent=`${ totalfooter } `        
+    totalrender.textContent = `${totalfooter} `
 
 }
 footer()
+
+// get the form by using its ID 
+let cookiesform = document.getElementById('form')
+
+// add event listener 
+
+cookiesform.addEventListener('submit', submitter);
+
+function submitter(event) {
+
+    event.preventDefault();
+
+    console.log(event)
+
+    let name = event.target.locationName.value;
+    // console.log(name,"hi")
+
+    let minCustomer = parseInt(event.target.minCustomer.value);
+    let maxCustomer = parseInt(event.target.maxCustomer.value);
+    let avgCookies = parseFloat(event.target.avgCookies.value);
+
+
+    let addedShops = new Shops(name, minCustomer, maxCustomer, avgCookies)
+    addedShops.randomCustomer()
+    // addedShops.Numberofcookies
+
+    console.log(addedShops)
+}
